@@ -28,7 +28,7 @@ const useWorkstations = () => {
         let newWorkstations = [...workstations];
         let newUrls = newWorkstations[workstationIdx].urls
 
-        chrome.tabs.query({'active': true}, function (tabs) {
+        chrome.tabs.query({'lastFocusedWindow': true, 'active': true}, function (tabs) {
             newUrls = [...newUrls, tabs[0].url]
             newWorkstations[workstationIdx].urls = newUrls;
             updateWorkstations(newWorkstations);

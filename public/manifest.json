@@ -11,7 +11,7 @@
     "tabs",
     "unlimitedStorage"
   ],
-  "version": "1.0",
+  "version": "0.1",
   "icons": {
     "128": "icon128.png" },
   "content_security_policy": "script-src 'self' 'sha256-f7m24vGIGy1aCWT6nkYK27boBwFtTyY8wGKIGiU6TOs='; object-src 'self'"

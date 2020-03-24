@@ -1,0 +1,56 @@
+html, body {
+  font-family: 'Assistant', 'sans-serif';
+}
+
+.App {
+  padding: 20px;
+}
+
+h3 {
+  font-family: 'Playfair Display', 'serif';
+}
+
+.workstation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.workstation p {
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-grow: 0;
+}
+
+.create-workstation-form {
+  width: 100%;
+  display: flex;
+}
+
+.create-workstation-form > p {
+  text-decoration: underline;
+  flex-grow: 0;
+}
+
+.create-workstation-form > p:hover, .buttons > p:hover {
+  color: #999;
+  cursor: pointer
+}
+
+.create-workstation-form > input {
+  border: none;
+  font-family: 'Assistant', 'sans-serif';
+  flex-grow: 1;
+}
+
+.create-workstation-form > input:focus {
+  outline: none;
+}

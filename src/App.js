@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CreateWorkstation from './CreateWorkstation';
+import useWorkstations from './useWorkstations';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [workstations, addWorkstation, addUrl, openWorkstation, deleteWorkstation] = useWorkstations();
+
+    return (
+        <div className="App">
+            <div className="workstation-container">
+                <h3>Launch Workstation</h3>
+                {workstations.map(ws => (
+                    <div className="workstation">
+                        <p>{ws.label}</p>
+                        <div className="buttons">
+                            <p onClick={() => openWorkstation(ws.id)}><i className="rocket icon" /></p>
+                            <p onClick={() => addUrl(ws.id)}><i className="plus icon" /></p>
+                            <p onClick={() => {deleteWorkstation(ws.id)}}><i className="trash icon" /></p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <CreateWorkstation newWorkstation={addWorkstation} />
+        </div>
+    )
 }
 
 export default App;

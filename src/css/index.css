@@ -10,24 +10,36 @@ h3 {
   font-family: 'Playfair Display', 'serif';
 }
 
+.box {
+  margin: 5px 0;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .workstation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 
 .workstation p {
   margin: 0;
 }
 
+.workstation-name {
+  flex-grow: 2;
+  padding: 10px;
+}
+
+.workstation-name:hover {
+  cursor: pointer;
+}
+
 .buttons {
   display: flex;
   flex-grow: 0;
+  padding: 10px;
 }
 
 .create-workstation-form {
@@ -36,8 +48,11 @@ h3 {
 }
 
 .create-workstation-form > p {
-  text-decoration: underline;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
   flex-grow: 0;
+  margin-left: 10px;
 }
 
 .create-workstation-form > p:hover, .buttons > p:hover {
@@ -47,10 +62,37 @@ h3 {
 
 .create-workstation-form > input {
   border: none;
+  border-bottom: 1px solid black;
   font-family: 'Assistant', 'sans-serif';
   flex-grow: 1;
 }
 
 .create-workstation-form > input:focus {
   outline: none;
+}
+
+.show-url {
+  color: grey;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.show-url:last-of-type {
+  padding-bottom: 10px;
+}
+
+.show-url span {
+  white-space: nowrap;
+  max-width: 300px;
+  flex-grow: 2;
+  overflow: hidden;
+  margin: 0;
+}
+
+.show-url .buttons {
+  padding: 0;
+  color: black;
+  margin-left: 10px;
 }

@@ -29,13 +29,27 @@ const useWorkstations = () => {
         let newUrls = newWorkstations[workstationIdx].urls
 
         chrome.tabs.query({'lastFocusedWindow': true, 'active': true}, function (tabs) {
-            newUrls = [...newUrls, tabs[0].url]
-            newWorkstations[workstationIdx].urls = newUrls;
-            updateWorkstations(newWorkstations);
+            if (!newUrls.includes(tabs[0].url)) {
+                newUrls = [...newUrls, tabs[0].url]
+                newWorkstations[workstationIdx].urls = newUrls;
+                updateWorkstations(newWorkstations);
+            }
         });
     }
 
+    const removeUrl = (id, url) => {
+        const workstationIdx = workstations.findIndex(
+            workstation => workstation.id === id);
+        let newWorkstations = [...workstations];
+        let newUrls = newWorkstations[workstationIdx].urls.filter(function(u){return u !== url})
+        newWorkstations[workstationIdx].urls = newUrls;
+        updateWorkstations(newWorkstations);
+    }
+
     const addWorkstation = (label) => {
+        if (label === '') {
+            label = 'New Workstation'
+        }
         const newWorkstation = { label, urls: [], id: uuid() };
         updateWorkstations([...workstations, newWorkstation]);
     };
@@ -53,7 +67,7 @@ const useWorkstations = () => {
         updateWorkstations(newWorkstations);
     }
 
-    return [workstations, addWorkstation, addUrl, openWorkstation, deleteWorkstation]
+    return [workstations, addWorkstation, addUrl, openWorkstation, deleteWorkstation, removeUrl]
 }
 
 export default useWorkstations;

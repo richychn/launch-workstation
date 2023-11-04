@@ -8,10 +8,9 @@
     "default_title": "Launch Workstation"
   },
   "permissions": [
-    "tabs",
-    "unlimitedStorage"
+    "tabs"
   ],
-  "version": "0.3",
+  "version": "0.6",
   "icons": {
     "128": "icon128.png" },
   "content_security_policy": "script-src 'self' 'sha256-f7m24vGIGy1aCWT6nkYK27boBwFtTyY8wGKIGiU6TOs='; object-src 'self'"
